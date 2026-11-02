@@ -1,0 +1,2 @@
+# Headless OpenCV supplies cv2 in the export environment.
+opencv-python
