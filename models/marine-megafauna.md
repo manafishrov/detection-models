@@ -15,5 +15,8 @@ The upstream project focuses on Malaysia/Indo-Pacific environments. Its
 published accuracy measurements do not establish accuracy on Manafish ROV
 footage. Evaluate this model on the intended environment before relying on it.
 
-Weight redistribution terms remain unconfirmed. No download is hosted here.
-See [the licensing notes](../NOTICE.md#marine-detect).
+The original checkpoint explicitly declares AGPL-3.0. The ONNX download and
+original checkpoint are available in [model release v1.0.0](https://github.com/manafishrov/detection-models/releases/tag/v1.0.0),
+with license text, source archives, and hashes. See
+[the license evidence](../license-evidence/marine-detect.json) and
+[licensing notes](../NOTICE.md#marine-detect).

@@ -28,18 +28,23 @@ The reviewed upstream code revision is
 - [Upstream code license](https://github.com/Orange-OpenSource/marine-detect/blob/587f45184ab0f04ed5a243c2625c441dfb2996a3/LICENSE)
 - [Copy of that license](LICENSES/marine-detect.txt)
 
-That repository includes AGPL-3.0 license text, but its README does not expressly
-state whether those terms cover the externally hosted model checkpoints.
-The scope of the weight license is therefore recorded as unconfirmed.
-The included license text documents the upstream code license; it is not
-evidence of permission to redistribute the weights.
+Both original checkpoint files contain the explicit metadata declaration
+`AGPL-3.0 (https://ultralytics.com/license)`. The checkpoints were obtained
+through the upstream README's download links and verified against the recorded
+SHA-256 hashes before inspecting their metadata. This evidence comes from the
+original files, not from an exporter's default license label. See
+[the recorded declarations](license-evidence/marine-detect.json).
 
-The original checkpoints and locally prepared ONNX files are not distributed
-by this repository. Their hashes and technical descriptions identify the
-reviewed files without granting rights to them. Before redistribution, confirm
-the applicable weight terms and identify the required Corresponding Source.
-Any eventual publication must preserve applicable upstream notices, identify
-the conversion and its date, and make the required source materials available.
+The model release retains the original checkpoints, converted ONNX models,
+source manifests, license text and upstream source archives. The conversion
+code and pinned dependency versions are in the release's tagged source.
+The original checkpoints were produced with Ultralytics 8.2.64; the ONNX
+conversion uses Ultralytics 8.4.197. Both source versions accompany the release.
+
+The ONNX conversions are dated 2026-11-02. They preserve the checkpoint's
+AGPL-3.0 declaration, add source attribution and the reviewed upstream revision,
+and remove the export timestamp for reproducible model bytes. Compatibility
+checks do not establish detection accuracy on Manafish ROV footage.
 
 The upstream README credits Tēnaka for its images. This repository does not
 distribute upstream images or training datasets.

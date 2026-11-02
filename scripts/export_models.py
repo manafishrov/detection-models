@@ -34,11 +34,16 @@ def prepare(name: str, weights_dir: Path, output_dir: Path) -> dict:
     os.environ["YOLO_AUTOINSTALL"] = "false"
     os.environ["YOLO_CONFIG_DIR"] = str((output_dir / ".export-config").resolve())
     from ultralytics import YOLO
+    import ultralytics
+    import torch
     import onnx
     import onnxruntime as ort
     import numpy as np
 
     model = YOLO(str(weights), task="detect")
+    checkpoint_license = model.ckpt.get("license", "")
+    if entry["licenseStatus"] == "declared-upstream" and not checkpoint_license.startswith(entry["license"]):
+        raise ValueError(f"{name}: checkpoint license does not match the catalog declaration")
     exported = Path(model.export(
         format="onnx", imgsz=640, batch=1, dynamic=False, simplify=False,
         opset=17, quantize=32, device="cpu",
@@ -75,6 +80,10 @@ def prepare(name: str, weights_dir: Path, output_dir: Path) -> dict:
         "sourceFile": weights.name, "sourceSha256": source_digest,
         "sourceRevision": entry["sourceRevision"],
         "license": entry["license"], "licenseStatus": entry["licenseStatus"],
+        "checkpointLicense": checkpoint_license,
+        "exportTools": {"ultralytics": ultralytics.__version__,
+                        "torch": torch.__version__,
+                        "onnx": onnx.__version__, "onnxruntime": ort.__version__},
         "classes": model.names, "outputShape": list(result.shape),
         "asset": {"fileName": destination.name, "fileSize": destination.stat().st_size,
                   "sha256": sha256(destination), "url": None},

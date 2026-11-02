@@ -1,0 +1,26 @@
+{
+  "verifiedAt": "2026-11-02T17:54:37.548096+00:00",
+  "method": "Read the license field directly from each original upstream checkpoint after verifying its SHA-256; no export or metadata rewriting was involved.",
+  "sourceRepository": "https://github.com/Orange-OpenSource/marine-detect",
+  "sourceRevision": "587f45184ab0f04ed5a243c2625c441dfb2996a3",
+  "checkpoints": [
+    {
+      "modelId": "marine-fishinv",
+      "fileName": "FishInv.pt",
+      "sha256": "d0edcad3daa2130a35d7f960301e96f242458490c0210afa4009a0db11687b28",
+      "field": "license",
+      "value": "AGPL-3.0 (https://ultralytics.com/license)",
+      "ultralyticsVersion": "8.2.64",
+      "checkpointDate": "2025-04-10T04:54:00.967199"
+    },
+    {
+      "modelId": "marine-megafauna",
+      "fileName": "MegaFauna.pt",
+      "sha256": "50fa92fc8be73d578415f163fe56f0a0e6effa3ab4c7df51ff243a9a50b3ee3b",
+      "field": "license",
+      "value": "AGPL-3.0 (https://ultralytics.com/license)",
+      "ultralyticsVersion": "8.2.64",
+      "checkpointDate": "2025-04-17T13:04:42.311756"
+    }
+  ]
+}

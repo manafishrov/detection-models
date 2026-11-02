@@ -13,9 +13,9 @@ The five general detectors download directly from the official Ultralytics
 `v8.4.0` release. Their 80 COCO classes include everyday objects such as people
 and boats, but do not include fish. See [general detectors](models/general.md).
 
-The two marine detectors have locally tested ONNX exports, but their downloads
-remain disabled while the redistribution terms for the separately hosted
-weights are unconfirmed. See [FishInv](models/marine-fishinv.md) and
+The two marine detectors are available as experimental ONNX downloads. The
+original checkpoints declare AGPL-3.0 inside their own metadata; the declaration
+and exact checkpoint hashes are recorded in [the license evidence](license-evidence/marine-detect.json). See [FishInv](models/marine-fishinv.md) and
 [MegaFauna](models/marine-megafauna.md).
 
 ## Catalog
@@ -74,15 +74,16 @@ python scripts/export_models.py \
 
 The tool exports single-file FP32 ONNX models with 640×640 input and opset 17,
 checks their graphs, runs CPU inference, and writes `prepared-models.json`.
-It never uploads files. Exported weight metadata does not assert a license.
+It never uploads files. Before exporting a licensed model, it checks that the
+checkpoint license matches the catalog, then preserves that declaration in ONNX metadata.
 
 ## Model releases
 
-Marine releases require confirmation of the weight license and a review of
-the Corresponding Source requirements. The upstream code license alone is
-recorded separately from the unresolved weight license. See [NOTICE.md](NOTICE.md).
+The marine checkpoints explicitly declare AGPL-3.0. This is evidence from the
+original files, separate from the upstream code repository license. See
+[NOTICE.md](NOTICE.md) and [the recorded declarations](license-evidence/marine-detect.json).
 
-Once those terms are established, prepare a release containing the ONNX files,
+Prepare a release containing the ONNX files,
 the original checkpoints and other required Corresponding Source, the export
 script and tool versions, applicable licenses and copyright notices, dated
 conversion notes, and the manifest of hashes. Retain the upstream credit and

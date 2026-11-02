@@ -54,11 +54,14 @@ class CatalogTests(unittest.TestCase):
                     validator.validate(catalog)
 
     def test_unconfirmed_weights_cannot_be_made_downloadable(self):
+        self.catalog[-1].update(license="NOASSERTION", licenseStatus="unconfirmed", licenseEvidence=None)
         self.catalog[-1]["asset"]["url"] = "https://example.com/MegaFauna.onnx"
         with self.assertRaisesRegex(ValueError, "unconfirmed weights cannot be downloadable"):
             validator.validate(self.catalog)
 
     def test_unconfirmed_weights_cannot_assert_a_license(self):
+        self.catalog[-1].update(licenseStatus="unconfirmed", licenseEvidence=None)
+        self.catalog[-1]["asset"]["url"] = None
         self.catalog[-1]["license"] = "AGPL-3.0"
         with self.assertRaisesRegex(ValueError, "unconfirmed weights cannot declare a license"):
             validator.validate(self.catalog)
@@ -67,6 +70,17 @@ class CatalogTests(unittest.TestCase):
         self.catalog[0]["licenseEvidence"] = None
         with self.assertRaisesRegex(ValueError, "missing license evidence"):
             validator.validate(self.catalog)
+
+    def test_marine_license_evidence_identifies_the_original_checkpoint(self):
+        evidence = json.loads((ROOT / "license-evidence/marine-detect.json").read_text())
+        by_id = {item["modelId"]: item for item in evidence["checkpoints"]}
+        for model in self.catalog:
+            if not model["experimental"]:
+                continue
+            declaration = by_id[model["id"]]
+            self.assertEqual(declaration["sha256"], model["sourceWeights"]["sha256"])
+            self.assertEqual(declaration["field"], "license")
+            self.assertEqual(declaration["value"], "AGPL-3.0 (https://ultralytics.com/license)")
 
     def test_export_rejects_changed_checkpoint_before_importing_ml_libraries(self):
         with tempfile.TemporaryDirectory() as directory:
