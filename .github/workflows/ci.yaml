@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - name: Validate catalog and tracked files
+        run: python3 -I scripts/validate_catalog.py --check-tracked-files
+      - name: Validate release inputs
+        run: python3 -I scripts/release_assets.py check
+      - name: Run tests
+        run: python3 -I -m unittest discover -s tests -v
+      - name: Check whitespace
+        run: git diff --check
+
+  ci:
+    name: ci
+    if: always()
+    needs:
+      - check
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Require all checks
+        env:
+          CHECK_RESULT: ${{ needs.check.result }}
+        run: test "$CHECK_RESULT" = success

@@ -58,6 +58,17 @@ def validate(models: object) -> None:
         require(is_sha256(asset.get("sha256")), f"{model_id}: invalid SHA-256")
         require("url" in asset, f"{model_id}: asset URL must be explicit")
         require(asset["url"] is None or is_https(asset["url"]), f"{model_id}: download URL must use HTTPS")
+        if "upstreamAssetUrl" in model:
+            require(is_https(model["upstreamAssetUrl"]), f"{model_id}: upstream asset URL must use HTTPS")
+        if "sourceWeights" in model:
+            weights = model["sourceWeights"]
+            require(isinstance(weights, dict) and is_sha256(weights.get("sha256")),
+                    f"{model_id}: invalid source weight hash")
+            require(isinstance(weights.get("fileName"), str)
+                    and re.fullmatch(r"[A-Za-z0-9_-]+\.pt", weights["fileName"]) is not None,
+                    f"{model_id}: unsafe checkpoint filename")
+            if "url" in weights:
+                require(is_https(weights["url"]), f"{model_id}: checkpoint URL must use HTTPS")
         status = model.get("licenseStatus")
         require(status in ("declared-upstream", "unconfirmed"), f"{model_id}: unknown license status")
         if status == "unconfirmed":

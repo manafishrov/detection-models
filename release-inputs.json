@@ -1,0 +1,130 @@
+{
+  "release": "v1.1.0",
+  "artifacts": [
+    {
+      "fileName": "FishInv.pt",
+      "fileSize": 87656947,
+      "sha256": "d0edcad3daa2130a35d7f960301e96f242458490c0210afa4009a0db11687b28",
+      "url": "https://github.com/manafishrov/detection-models/releases/download/v1.0.0/FishInv.pt",
+      "role": "original-checkpoint"
+    },
+    {
+      "fileName": "MegaFauna.pt",
+      "fileSize": 87619827,
+      "sha256": "50fa92fc8be73d578415f163fe56f0a0e6effa3ab4c7df51ff243a9a50b3ee3b",
+      "url": "https://github.com/manafishrov/detection-models/releases/download/v1.0.0/MegaFauna.pt",
+      "role": "original-checkpoint"
+    },
+    {
+      "fileName": "marine-detect-source-587f451.tar.gz",
+      "fileSize": 24074,
+      "sha256": "b5875ec167f28adb3ec740da64a524400daaaf7cf766d2e1834098dffebd35ab",
+      "url": "https://github.com/manafishrov/detection-models/releases/download/v1.0.0/marine-detect-source-587f451.tar.gz",
+      "role": "upstream-source",
+      "sourceRevision": "587f45184ab0f04ed5a243c2625c441dfb2996a3"
+    },
+    {
+      "fileName": "prepared-models.json",
+      "fileSize": 2201,
+      "sha256": "db83c104f89c55b1ea71bee5591e413c2f442d8d5b9e4f14845f746b4596fe54",
+      "url": "https://github.com/manafishrov/detection-models/releases/download/v1.0.0/prepared-models.json",
+      "role": "marine-export-record"
+    },
+    {
+      "fileName": "ultralytics-source-8.2.100.tar.gz",
+      "fileSize": 1501402,
+      "sha256": "7d51aeb8eb4d120475291057834e9154ebe429c6f357ebdc002d17fe902af89d",
+      "url": "https://codeload.github.com/ultralytics/ultralytics/tar.gz/ba949830bfd232dccd3aa531f6e1d92583ad4dbd",
+      "sourceRevision": "ba949830bfd232dccd3aa531f6e1d92583ad4dbd",
+      "version": "8.2.100",
+      "role": "framework-source"
+    },
+    {
+      "fileName": "ultralytics-source-8.2.64.tar.gz",
+      "fileSize": 1437746,
+      "sha256": "9564c469c31397d9600835dea0ebbc1e439af90993bba46db0a26ea1d8a3d3fe",
+      "url": "https://github.com/manafishrov/detection-models/releases/download/v1.0.0/ultralytics-source-8.2.64.tar.gz",
+      "role": "framework-source",
+      "sourceRevision": "b9f987ccce9f7db0759c2221b09286818dcb4cad"
+    },
+    {
+      "fileName": "ultralytics-source-8.3.222.tar.gz",
+      "fileSize": 1905433,
+      "sha256": "817e0c4f33c31b47ffb8dc75c34d1831c260fe4ac20f08d96118517da5c48d02",
+      "url": "https://codeload.github.com/ultralytics/ultralytics/tar.gz/7c654d5db91f8e1f81dfafb7796f284cdf1343c6",
+      "sourceRevision": "7c654d5db91f8e1f81dfafb7796f284cdf1343c6",
+      "version": "8.3.222",
+      "role": "framework-source"
+    },
+    {
+      "fileName": "ultralytics-source-8.3.237.tar.gz",
+      "fileSize": 2000659,
+      "sha256": "3e632c47614064acc2151d76176f7798e9f94fb61e207e5579c2cbcdf9cc7f70",
+      "url": "https://codeload.github.com/ultralytics/ultralytics/tar.gz/e0764aa55d4e79aefdc917c7b1aeb97498440275",
+      "sourceRevision": "e0764aa55d4e79aefdc917c7b1aeb97498440275",
+      "version": "8.3.237",
+      "role": "framework-source"
+    },
+    {
+      "fileName": "ultralytics-source-8.4.197.tar.gz",
+      "fileSize": 2812734,
+      "sha256": "fa222d639b9ee8bfb6c4d91e12d78016c01bf248b52c97e64cc01e43c8910e18",
+      "url": "https://github.com/manafishrov/detection-models/releases/download/v1.0.0/ultralytics-source-8.4.197.tar.gz",
+      "role": "framework-source",
+      "sourceRevision": "1d85e0ddedd7754fdbf238cc941b57b170a36b67"
+    },
+    {
+      "fileName": "ultralytics-source-8.4.38.tar.gz",
+      "fileSize": 2187231,
+      "sha256": "be1b428591012e73c4a184be2ef7255f0846933a0f1752b0da4e32034e741ee3",
+      "url": "https://codeload.github.com/ultralytics/ultralytics/tar.gz/3108aa614d801b6b4a18ef7d1755b8c53dffe8a4",
+      "sourceRevision": "3108aa614d801b6b4a18ef7d1755b8c53dffe8a4",
+      "version": "8.4.38",
+      "role": "framework-source"
+    },
+    {
+      "fileName": "ultralytics-source-8.4.41.tar.gz",
+      "fileSize": 2209088,
+      "sha256": "964ad31e980720b8e17368af6ff80c762dcd0f8536f52146b80ba40cce38e9a5",
+      "url": "https://codeload.github.com/ultralytics/ultralytics/tar.gz/972e135c425242bf7991a0c5449cbb8d66ff263f",
+      "sourceRevision": "972e135c425242bf7991a0c5449cbb8d66ff263f",
+      "version": "8.4.41",
+      "role": "framework-source"
+    },
+    {
+      "fileName": "yolo11n.pt",
+      "fileSize": 5613764,
+      "sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+      "url": "https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo11n.pt",
+      "role": "original-checkpoint"
+    },
+    {
+      "fileName": "yolo11s.pt",
+      "fileSize": 19313732,
+      "sha256": "85a76fe86dd8afe384648546b56a7a78580c7cb7b404fc595f97969322d502d5",
+      "url": "https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo11s.pt",
+      "role": "original-checkpoint"
+    },
+    {
+      "fileName": "yolo26m.pt",
+      "fileSize": 44255705,
+      "sha256": "401cea9ab23ad19246ff7744859816bc599f350e93c9dd30367b6f0a0745d0b7",
+      "url": "https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo26m.pt",
+      "role": "original-checkpoint"
+    },
+    {
+      "fileName": "yolo26n.pt",
+      "fileSize": 5544453,
+      "sha256": "9b09cc8bf347f0fc8a5f7657480587f25db09b34bf33b0652110fb03a8ad4fef",
+      "url": "https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo26n.pt",
+      "role": "original-checkpoint"
+    },
+    {
+      "fileName": "yolo26s.pt",
+      "fileSize": 20422725,
+      "sha256": "646f8bc3fe0a656803d95c294f7852321748cb29d13466a1af8862e2db384a1b",
+      "url": "https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo26s.pt",
+      "role": "original-checkpoint"
+    }
+  ]
+}

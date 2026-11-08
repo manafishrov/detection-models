@@ -1,0 +1,36 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:best-practices",
+    ":separateMultipleMajorReleases",
+    "abandonments:recommended",
+    ":semanticCommits",
+    ":dependencyDashboard"
+  ],
+  "timezone": "Europe/Oslo",
+  "schedule": ["before 09:00 on monday"],
+  "prConcurrentLimit": 10,
+  "prHourlyLimit": 10,
+  "platformAutomerge": false,
+  "labels": ["dependencies"],
+  "commitMessagePrefix": "chore(deps): ",
+  "osvVulnerabilityAlerts": true,
+  "vulnerabilityAlerts": {
+    "labels": ["dependencies", "security"]
+  },
+  "enabledManagers": ["github-actions", "pip_requirements"],
+  "pip_requirements": {
+    "managerFilePatterns": ["/(^|/)(export|validation)-requirements\\.txt$/"]
+  },
+  "packageRules": [
+    {
+      "matchManagers": ["github-actions"],
+      "groupName": "github actions"
+    },
+    {
+      "matchManagers": ["pip_requirements"],
+      "groupName": "model tooling",
+      "automerge": false
+    }
+  ]
+}

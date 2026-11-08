@@ -2,17 +2,29 @@
 
 ## Ultralytics general detectors
 
-YOLO26 and YOLO11 are provided by Ultralytics. This catalog refers to the
-official ONNX files from the `ultralytics/assets` release `v8.4.0` and records
-their hashes. It does not mirror those files.
+YOLO26 and YOLO11 are provided by Ultralytics. Manafish `v1.1.0` mirrors the
+five official ONNX files from the `ultralytics/assets` release `v8.4.0` without
+modification. The catalog retains their original URLs and hashes.
 
 - [YOLO26 documentation](https://docs.ultralytics.com/models/yolo26/)
 - [YOLO11 documentation](https://docs.ultralytics.com/models/yolo11/)
 - [Ultralytics licensing](https://www.ultralytics.com/license)
 - [Official assets](https://github.com/ultralytics/assets/releases/tag/v8.4.0)
 
-The catalog records the upstream AGPL-3.0 license declaration. Users remain
-responsible for complying with the applicable model terms.
+The ONNX files and the official same-named companion checkpoints contain
+AGPL-3.0 declarations. [Recorded evidence](license-evidence/ultralytics.json)
+retains their original metadata and hashes. Checkpoint metadata was inspected
+with pickle disassembly, not by executing the checkpoints. The release includes
+these original checkpoints, [the upstream license](LICENSES/ultralytics.txt),
+and source archives for the recorded training/export framework versions.
+
+The `v8.4.0` asset tag is not the exporter version: the ONNX files report
+Ultralytics 8.3.237, 8.4.38 or 8.4.41. The companion checkpoints report 8.2.100
+or 8.3.222. See [source materials](SOURCE-ARCHIVES.md) for exact version mappings,
+commit IDs and limitations. Public version tags and same-named checkpoints do
+not by themselves establish the exact original build or training environment;
+Manafish does not claim byte-reproducible upstream exports or a legal assessment
+of source completeness. Users remain responsible for applicable model terms.
 
 ## Marine Detect
 

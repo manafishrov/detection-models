@@ -1,0 +1,46 @@
+name: Verify release
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      release:
+        description: Immutable release tag to verify against its tagged source
+        required: true
+        default: v1.1.0
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.release.tag_name || inputs.release }}
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    name: Hosted assets and ONNX inference
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ github.event.release.tag_name || inputs.release }}
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.13'
+      - name: Install CPU validation dependencies
+        run: python -I -m pip install -r validation-requirements.txt
+      - name: Test validation tools
+        run: python -I -m unittest discover -s tests -v
+      - name: Verify every hosted asset and all seven detectors
+        env:
+          RELEASE_TAG: ${{ github.event.release.tag_name || inputs.release }}
+        run: >-
+          python -I scripts/release_assets.py verify
+          --release "$RELEASE_TAG"
+          --cache-dir "$RUNNER_TEMP/verified-model-release"
+          --inference
